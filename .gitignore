@@ -1,0 +1,8 @@
+.idea/*
+.git/*
+.sass-cache/*
+
+node_modules/
+src/components/
+
+

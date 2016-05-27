@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Angular to do list</title>
+    <script src="assets/js/application.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/application.min.css">
+</head>
+<body ng-app="myToDoList" ng-controller="todoCtrl" id="todoCtrl">
+    <div class="content-container">
+
+        <h1>FridgeDoor Notes</h1>
+
+        <form class="form" ng-submit="todoAdd()">
+            <fieldset class="form-group">
+                <label for="formDescription">New task description</label>
+                <input type="text" class="form-control"  ng-model="todoInput" placeholder="what needs to be done?" id="formDescription" required>
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="formDueDate">Date Due</label>
+                <input type="date" class="form-control" ng-model="todoDate" min="{{minDate | date:'yyyy-MM-dd'}}" id="formDueDate" required>
+            </fieldset>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add New</button>
+        </form>
+
+
+        <div class="to-do list-group">
+            <a href="#" class="to-do-item" ng-repeat="todoItem in todoList | orderBy:'due_date'">
+                <span class="to-do-item-heading" ng-bind="todoItem.description"></span>
+                <span class="to-do-item-due" ng-bind="todoItem.due_date_human"></span>
+                <button class="btn btn-close" ng-click="todoRemove(todoItem)"><i class="fa fa-remove"></i></button>
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>

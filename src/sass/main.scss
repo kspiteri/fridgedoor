@@ -1,0 +1,145 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin background-gradient($from, $to) {
+  background: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+  background: -moz-linear-gradient(top,  $from, $to);
+  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
+}
+
+$mainBackground: #b8b8b8;
+$mainForeground: whitesmoke;
+$actionColor: #669900;
+$actionColor2: #466f00;
+$base-font-colour: #343434;
+
+
+html {
+  font: 13px Lato;
+  color: $base-font-colour;
+  background-color: $mainBackground;
+
+  h1 {
+    font-weight: 100;
+  }
+}
+
+.content-container {
+  max-width: 30rem;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+
+  .form {
+    background-color: $mainForeground;
+    padding: 1.5rem;
+    @include border-radius(3px);
+    @include box-shadow(1rem, 2rem, 2rem, rgba(0, 0, 0, 0.2));
+
+    fieldset.form-group {
+      padding: 0;
+      margin: 0 0 1rem;
+      border: none;
+
+      label {
+        display: block;
+        text-align: left;
+        font-weight: 600;
+      }
+      input {
+        display: block;
+        width: calc(100% - 2rem);
+        padding: 1rem;
+        font-size: 1.5rem;
+        margin: 0.5rem 0 0;
+        @include border-radius(3px);
+        border: none;
+      }
+    }
+  }
+
+  .to-do.list-group {
+    margin-top: 2rem;
+    @include border-radius(3px);
+    @include box-shadow(1rem, 2rem, 2rem, rgba(0, 0, 0, 0.2));
+    overflow: hidden;
+    border: none;
+
+    .to-do-item {
+      display: block;
+      padding: 1rem 3rem 1rem 0.5rem;
+      color: $base-font-colour;
+      background-color: $mainForeground;
+      text-decoration: none;
+      border-bottom: 1px solid $mainBackground;
+      position: relative;
+      text-align: left;
+
+      .to-do-item-heading {
+        font-size: 1.2rem;
+      }
+
+      .to-do-item-due {
+        font-style: italic;
+        opacity: 0.8;
+      }
+
+      .btn-close {
+        position: absolute;
+        top: 0.7rem;
+        right: 1rem;
+      }
+    }
+  }
+}
+
+.btn {
+  cursor: pointer;
+  @include border-radius(3px);
+  border: none;
+
+  &.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-weight: 100;
+    font-size: 1.5rem;
+    background-color: $actionColor;
+    color: $mainForeground;
+    &:hover {
+      @include background-gradient($actionColor, $actionColor2);
+    }
+    &:focus {
+      background-color: $actionColor2;
+    }
+  }
+
+  &.btn-close {
+    font-weight: 100;
+    font-size: 1.5rem;
+    background: none;
+    transform: scale(0.9);
+    &:hover {
+      transform: scale(1.1);
+      color: $actionColor;
+    }
+  }
+}
+
+@import "../components/font-awesome/scss/font-awesome.scss";
