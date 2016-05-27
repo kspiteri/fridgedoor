@@ -1,6 +1,6 @@
 {
-  "name": "angularList",
-  "version": "1.0.0",
+  "name": "fridgedoor",
+  "version": "0.0.1",
   "description": "Angular ToDo List",
   "dependencies": {},
   "devDependencies": {
@@ -13,5 +13,21 @@
     "grunt-contrib-watch": "^1.0.0"
   },
   "author": "contact@keithspiteri.com",
-  "license": "MIT"
+  "license": "MIT",
+  "main": "gruntfile.js",
+  "scripts": {
+    "test": "keep calm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kspiteri/fridgedoor.git"
+  },
+  "keywords": [
+    "todo",
+    "list"
+  ],
+  "bugs": {
+    "url": "https://github.com/kspiteri/fridgedoor/issues"
+  },
+  "homepage": "https://github.com/kspiteri/fridgedoor#readme"
 }
