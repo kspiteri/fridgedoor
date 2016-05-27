@@ -6,15 +6,15 @@ To download using git, open Terminal/Powershell and type
 git clone https://github.com/kspiteri/fridgedoor
 ```
 
-you can now run the index.html file locally.
-To alter the code, simply run the following commands *
+You can now run the index.html file locally.
+To alter the code, simply run the following commands
 
 ```
 npm install
 bower install
 ```
 
-Once the project has been set-up correctly, use grunt to automate any repetitive tasks with
+Once the project has been set up correctly, call grunt using the following command
 
 ```
 grunt
