@@ -26,14 +26,6 @@ app.controller('todoCtrl', function($scope, $http) {
         });
     };
 
-    $http.get("https://s3-eu-west-1.amazonaws.com/appointedd-assets/tasks.json")
-        .then(function(response) {
-            var tasks = response.data.tasks;
-            angular.forEach(tasks, function(value, key) {
-                $scope.addNew(value['description'], value['due_date'])
-            });
-        });
-
     $scope.todoRemove = function(item) {
         var index = $scope.todoList.indexOf(item);
         $scope.todoList.splice(index, 1);
